@@ -40,12 +40,16 @@ const Navbar = () => {
                 </li>
               );
             })}
-            <button className="bg-indigo-600 text-white font-[poppins] py-2 px-5 rounded md:ml-8 hover:bg-indigo-800 duration-500 mr-6">
-              <Link to="/signUp">SignUp</Link>
-            </button>
-            <button className="bg-indigo-600 text-white font-[poppins] py-2 px-5 rounded md:ml-2 hover:bg-indigo-800 duration-500">
-              <Link to="/login">Login</Link>
-            </button>
+            <Link to="/signUp">
+              <button className="bg-indigo-600 text-white font-[poppins] py-2 px-5 rounded md:ml-8 hover:bg-indigo-800 duration-500 mr-6">
+                SignUp
+              </button>
+            </Link>
+            <Link to="/login">
+              <button className="bg-indigo-600 text-white font-[poppins] py-2 px-5 rounded md:ml-2 hover:bg-indigo-800 duration-500">
+                Login
+              </button>
+            </Link>
           </ul>
         </div>
       </div>
