@@ -1,11 +1,14 @@
-import './App.css';
-import Controller from './Controller';
+import "./App.css";
+import Controller from "./Controller";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-   <>
-  <Controller/>
-   </>
+    <>
+      <BrowserRouter>
+        <Controller />
+      </BrowserRouter>
+    </>
   );
 }
 
