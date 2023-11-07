@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from './Image/logo.png';
+import logo from "./Image/logo.png";
 
 const Navbar = () => {
   let Links = [
@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="shadow-md w-full top-0 left-0">
         <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
           <span className="font-bold text-2xl flex items-center font-[poppins] text-gray-800">
-           <img src={logo} alt=""className="w-[20%]" />
+            <img src={logo} alt="" className="w-[20%]" />
           </span>
           <div
             className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
@@ -41,10 +41,10 @@ const Navbar = () => {
               );
             })}
             <button className="bg-indigo-600 text-white font-[poppins] py-2 px-5 rounded md:ml-8 hover:bg-indigo-800 duration-500 mr-6">
-              SignUp
+              <Link to="/signUp">SignUp</Link>
             </button>
             <button className="bg-indigo-600 text-white font-[poppins] py-2 px-5 rounded md:ml-2 hover:bg-indigo-800 duration-500">
-              Login
+              <Link to="/login">Login</Link>
             </button>
           </ul>
         </div>
