@@ -1,8 +1,9 @@
 import authModel from "../Models/authModel.js";
 import bcryptjs from "bcryptjs";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
 class authController {
+  // ---------------------------  Registration ----------------------------------------
   static registration = async (req, res) => {
     const { name, email, phone, password } = req.body;
     try {
@@ -35,6 +36,9 @@ class authController {
       console.log(e.message);
     }
   };
+
+  // ---------------------------  Login ----------------------------------------
+
   static login = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -45,7 +49,7 @@ class authController {
             email === isUser.email &&
             (await bcryptjs.compare(password, isUser.password))
           ) {
-            const token = jwt.sign({ userId: isUser._id }, "shivam", {
+            const token = jwt.sign({ userID: isUser._id }, "shivam", {
               //secrete Key is shivam
               expiresIn: "2d",
             });
@@ -57,6 +61,34 @@ class authController {
           }
         } else {
           return res.status(400).json({ message: "User Not found" });
+        }
+      } else {
+        return res.status(400).json({ message: "All Fields are required" });
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  // ---------------------------  Change Password ----------------------------------------
+
+  static changePassword = async (req, res) => {
+    const { newPassword, confirmPassword } = req.body;
+    try {
+      if (newPassword && confirmPassword) {
+        if (newPassword === confirmPassword) {
+          const genSalt =await bcryptjs.genSalt(10);
+          const hashedPassword = await bcryptjs.hash(newPassword, genSalt);
+          await authModel.findByIdAndUpdate(req.user._id, {
+            password: hashedPassword,
+          });
+          return res
+            .status(200)
+            .json({ message: "Password change Successfully" });
+        } else {
+          return res
+            .status(401)
+            .json({ message: "Password and confirm password not match" });
         }
       } else {
         return res.status(400).json({ message: "All Fields are required" });
