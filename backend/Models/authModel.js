@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
-const authSchema = new mongoose.Schema(
-  {
-    name: String,
+const authSchema = new mongoose.Schema({
+  name: {
+    type: String,
   },
-  {
-    email: String,
+  email: {
+    type: String,
   },
-  {
-    phone: Number,
+  phone: {
+    type: Number,
   },
-  {
-    password: String,
-  }
-);
+  password: {
+    type: String,
+  },
+});
 
 const authModel = mongoose.model("users", authSchema);
 
