@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../Service/Api";
 import { useNavigate } from "react-router-dom";
+import Logout from "../Pages/Logout";
 
 const ChangePassword = () => {
   const Navigate = useNavigate();
@@ -39,13 +40,14 @@ const ChangePassword = () => {
     <>
       <div className="flex justify-center item-center mt-4">
         <h2 className="mr-10">Welcome {name}</h2>
-        <button
+        <Logout/>
+        {/* <button
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           onClick={handleLogOut}
         >
           Logout
-        </button>
+        </button> */}
       </div>
       {/* ----------------------  Form  ------------------------------------------- */}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-1 lg:px-8">
