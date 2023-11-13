@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logout from "./Logout";
+import Product from "./Product/Product";
 
 const Home = () => {
   return (
@@ -18,7 +19,10 @@ const Home = () => {
         ""
       )}
 
-      <h1 className="text-center text-3xl mt-20">Home Page</h1>
+      {/* <h1 className="text-center text-3xl mt-20">Home Page</h1> */}
+      <h1>Product List</h1>
+
+      <Product/>
     </>
   );
 };
