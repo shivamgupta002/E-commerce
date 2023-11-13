@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Products from './ProductData';
+import React from "react";
+import Products from "./ProductData";
 const Product = () => {
-//   const [product, setProduct] = useState([]);
-//   const productData = async () => {
-//     const res = await fetch("https://fakestoreapi.com/products");
-//     const data = await res.json();
-//     setProduct(data);
-//   };
-//   useEffect(() => {
-//     productData();
-//   }, []);
-//   console.log(product);
+  //   const [product, setProduct] = useState([]);
+  //   const productData = async () => {
+  //     const res = await fetch("https://fakestoreapi.com/products");
+  //     const data = await res.json();
+  //     setProduct(data);
+  //   };
+  //   useEffect(() => {
+  //     productData();
+  //   }, []);
+  //   console.log(product);
   return (
     <>
       <div className="bg-white">
