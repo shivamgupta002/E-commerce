@@ -1,0 +1,22 @@
+.container {
+    border: 1px solid rgb(29, 189, 15);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    border: 1px solid rgb(243, 5, 5);
+    width: 30%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+        
+}
+
+img {
+    border: 1px solid rgb(5, 243, 57);
+    width: 100%;
+    height: 70%;
+}

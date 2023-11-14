@@ -3,7 +3,6 @@ import bottle2 from "../../Image/Product/bottle2.jpg";
 import paper_refill from "../../Image/Product/paper_refill.jpg";
 import mechanic_pencil from "../../Image/Product/Mechanical_Pencil.jpg";
 import iPhone15 from "../../Image/Product/iphone15.jpg";
-import airPurifier from "../../Image/Product/air_purifier.jpg";
 import appleWatch from "../../Image/Product/appleWatch.jpg";
 import beatXpWatch from "../../Image/Product/beatXP.jpg";
 import fireBoult from "../../Image/Product/firebolt.jpg";
@@ -51,16 +50,7 @@ const products = [
     imageAlt: "iphone15",
     category: "phone",
   },
-  {
-    id: 8,
-    name: "Air Purifier",
-    href: "#",
-    price: "$2100",
-    imageSrc: `${airPurifier}`,
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-    category: "pen",
-  },
+  
   {
     id: 10,
     name: "Machined Mechanical Pencil",
