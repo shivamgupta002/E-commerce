@@ -19,10 +19,9 @@ const Home = () => {
         ""
       )}
 
-      {/* <h1 className="text-center text-3xl mt-20">Home Page</h1> */}
-      <h1>Product List</h1>
+      <h1 className="text-4xl text-center text-gray-600 my-4">Product List</h1>
 
-      <Product/>
+      <Product />
     </>
   );
 };
