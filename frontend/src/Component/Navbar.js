@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./Image/logo.png";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const items = useSelector((state) => state.cart);
+
   let Links = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
@@ -49,6 +52,15 @@ const Navbar = () => {
               <button className="bg-indigo-600 text-white font-[poppins] py-2 px-5 rounded md:ml-2 hover:bg-indigo-800 duration-500">
                 Login
               </button>
+            </Link>
+            <Link
+              to="/cart"
+              className="text-gray-800 hover:text-gray-400 duration-500"
+            >
+              <i className="fa-solid fa-cart-shopping ml-5 text-2xl relative"></i>
+              <span className="absolute text-xl top-[6px] right-[33px] text-blue-800">
+                {items.length}
+              </span>
             </Link>
           </ul>
         </div>

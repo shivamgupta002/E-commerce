@@ -8,6 +8,7 @@ import Login from "./Component/authPage/Login";
 import Home from "./Component/Pages/Home";
 import ChangePassword from "./Component/authPage/changePassword";
 import ProtectedRoute from "./Component/Service/ProtectedRoute";
+import Cart from "./Component/Pages/Cart";
 
 const Controller = () => {
   return (
@@ -21,6 +22,7 @@ const Controller = () => {
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/changePassword" element={<ChangePassword />} />
           <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/service" element={<Service />} />
         </Route>
       </Routes>

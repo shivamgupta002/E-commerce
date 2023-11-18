@@ -1,7 +1,13 @@
 import React from "react";
 import Products from "./ProductData";
 import "./product.css";
+import { add } from "../Redux/CartSlice";
+import { useDispatch } from "react-redux";
 const Product = () => {
+  const dispatch = useDispatch();
+  const handleAdd = (product) => {
+    dispatch(add(product));
+  };
   return (
     <>
       <div className="container">
@@ -19,7 +25,7 @@ const Product = () => {
                   </h2>{" "}
                   <p>{product.price}</p>
                 </div>
-                <button className="cart">
+                <button className="cart" onClick={() => handleAdd(product)}>
                   ADD
                   <ion-icon name="cart-outline" className="cart"></ion-icon>
                 </button>
