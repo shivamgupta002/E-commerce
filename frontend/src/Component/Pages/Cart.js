@@ -15,7 +15,7 @@ const Cart = () => {
   };
   return (
     <>
-      <h2>Cart Page</h2>
+      <h2 className="text-2xl text-center text-blue-500">Cart Page</h2>
 
       <div className="cartContainer">
         {cartItems.map((item) => (
