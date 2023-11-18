@@ -1,0 +1,36 @@
+.cartContainer {
+    /* border: 1px solid green; */
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    flex-wrap: wrap;
+
+}
+
+.cartBox {
+    /* border: 1px solid blue; */
+    box-shadow: 0 0 4px #27302e;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+
+.cartImg {
+    /* border: 1px solid black; */
+    width: 30%;
+    height: 50%;
+}
+
+.cartBox button {
+    width: 6rem;
+    /* border: 1px solid gray; */
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: rgb(29, 93, 102);
+    color: wheat;
+}

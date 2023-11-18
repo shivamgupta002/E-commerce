@@ -1,11 +1,43 @@
-import React from 'react'
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import "./CSS/cart.css";
+import { remove } from "./Redux/CartSlice";
+// import img1 from "../Image/Product/appleWatch.jpg";
 
 const Cart = () => {
-  return (
-    <div>
-      cart
-    </div>
-  )
-}
+  const dispatch = useDispatch();
 
-export default Cart
+  const cartItems = useSelector((state) => state.cart);
+  // console.log(cartItems);
+  const removeItem = (id) => {
+    dispatch(remove(id));
+  };
+  return (
+    <>
+      <h2>Cart Page</h2>
+
+      <div className="cartContainer">
+        {cartItems.map((item) => (
+          <div className="cartBox">
+            <img src={item.imageSrc} alt="img" className="cartImg" />
+            <h2>{item.name}</h2>
+            <h3>Price : {item.price}</h3>
+            <button onClick={() => removeItem(item.id)}>Remove</button>
+          </div>
+        ))}
+      </div>
+
+      {/* <div className="cartContainer">
+        <div className="cartBox">
+          <img src={img1} alt="img" className="cartImg" />
+          <h2>BeatXp</h2>
+          <h3>Price : $18</h3>
+          <button>Remove</button>
+        </div>      
+      </div> */}
+    </>
+  );
+};
+
+export default Cart;
