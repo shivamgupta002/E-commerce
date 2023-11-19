@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 // import Products from "./ProductData";
+import loadingImg from '../../Image/loader.gif'
 import "./product.css";
 import { add } from "../Redux/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +15,12 @@ const Product = () => {
     dispatch(fetchProducts());
   }, []);
   if (status === STATUSES.Loading) {
-    return <h2>Loading ....</h2>;
+    return (
+
+      <div className="flex justify-center mt-[27vh]">
+      <img src={loadingImg} alt="loading" />
+      </div>
+      )
   }
   return (
     <>
@@ -42,6 +48,8 @@ const Product = () => {
           </>
         ))}
       </div> */}
+      <h1 className="text-4xl text-center text-gray-600 my-4">Product List</h1>
+
       <div className="container">
         {product.map((product) => (
           <>

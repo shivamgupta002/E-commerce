@@ -18,9 +18,6 @@ const Home = () => {
       ) : (
         ""
       )}
-
-      <h1 className="text-4xl text-center text-gray-600 my-4">Product List</h1>
-
       <Product />
     </>
   );
