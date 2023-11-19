@@ -9,6 +9,7 @@ import Home from "./Component/Pages/Home";
 import ChangePassword from "./Component/authPage/changePassword";
 import ProtectedRoute from "./Component/Service/ProtectedRoute";
 import Cart from "./Component/Pages/Cart";
+import AddProduct from "./Component/Pages/Admin/AddProduct";
 
 const Controller = () => {
   return (
@@ -19,6 +20,7 @@ const Controller = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
+        <Route path="/addProduct" element={<AddProduct />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/changePassword" element={<ChangePassword />} />
           <Route path="/about" element={<About />} />
