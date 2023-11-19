@@ -20,8 +20,13 @@ const Cart = () => {
       <div className="cartContainer">
         {cartItems.map((item) => (
           <div className="cartBox">
-            <img src={item.imageSrc} alt="img" className="cartImg" />
-            <h2>{item.name}</h2>
+            {/*------------------- Product data --------------------- */}
+            {/* <img src={item.imageSrc} alt="img" className="cartImg" /> */}
+            {/* <h2>{item.name}</h2> */}
+
+            {/*------------ For store Api ----------------*/}
+            <img src={item.image} alt="img" className="cartImg" />
+            <h2>{item.title.slice(0, 20)}</h2>
             <h3>Price : {item.price}</h3>
             <button onClick={() => removeItem(item.id)}>Remove</button>
           </div>
