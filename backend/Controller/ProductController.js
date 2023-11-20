@@ -1,6 +1,8 @@
 import productModel from "../Models/ProductModel.js";
 
 class productController {
+  // ---------------------- Add Product---------------------------------------
+
   static addProduct = async (req, res) => {
     const { title, image, price, rating } = req.body;
     try {
@@ -27,6 +29,20 @@ class productController {
         }
       } else {
         return res.status(208).json({ message: "All fields are required" });
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  // ---------------------- Get ALL Product---------------------------------------
+  static getAllProduct = async (req, res) => {
+    try {
+      const product = await productModel.find();
+      if (product) {
+        return res.status(201).json({ product });
+      } else {
+        return res.status(208).json({ message: "No product Found" });
       }
     } catch (e) {
       console.log(e.message);
