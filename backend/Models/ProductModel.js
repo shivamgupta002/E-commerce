@@ -10,6 +10,9 @@ const productSchema = new mongoose.Schema({
   price: {
     type: String,
   },
+  category:{
+    type:String
+  },
   rating: {
     type: String,
   },

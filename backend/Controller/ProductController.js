@@ -4,9 +4,9 @@ class productController {
   // ---------------------- Add Product---------------------------------------
 
   static addProduct = async (req, res) => {
-    const { title, image, price, rating } = req.body;
+    const { title, image, price, rating,category } = req.body;
     try {
-      if (title && image && price && rating) {
+      if (title && image && price && rating && category) {
         const isProduct = await productModel.findOne({ title: title });
         if (isProduct) {
           return res
@@ -18,6 +18,7 @@ class productController {
             image,
             price,
             rating,
+            category
           }).save();
           if (newProduct) {
             return res
