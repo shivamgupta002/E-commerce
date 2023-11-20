@@ -30,9 +30,11 @@ export function fetchProducts() {
   return async function fetchProductThunk(dispatch) {
     dispatch(setStatus(STATUSES.Loading));
     try {
-      const res = await fetch("https://fakestoreapi.com/products");
+      // const res = await fetch("https://fakestoreapi.com/products");
+      const res = await fetch("http://localhost:5000/api/product/getProduct");
       const data = await res.json();
-      dispatch(setProduct(data));
+      // dispatch(setProduct(data));
+      dispatch(setProduct(data.product));
       dispatch(setStatus(STATUSES.SUCCESS));
     } catch (e) {
       console.log(e.message);
