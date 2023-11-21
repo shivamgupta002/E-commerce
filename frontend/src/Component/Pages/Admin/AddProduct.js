@@ -13,11 +13,19 @@ const AddProduct = () => {
     console.log(input);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/product/addProduct",input
+        "http://localhost:5000/api/product/addProduct",
+        input
       );
       if (response.status === 201) {
         console.log("done");
         alert(response.data.message);
+        setInput({
+          title: "",
+          image: "",
+          price: "",
+          rating: "",
+          category: "",
+        });
       } else {
         console.log("Not Done");
         console.log(response.status);
