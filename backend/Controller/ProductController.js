@@ -4,7 +4,7 @@ class productController {
   // ---------------------- Add Product---------------------------------------
 
   static addProduct = async (req, res) => {
-    const { title, image, price, rating,category } = req.body;
+    const { title, image, price, rating, category } = req.body;
     try {
       if (title && image && price && rating && category) {
         const isProduct = await productModel.findOne({ title: title });
@@ -18,7 +18,7 @@ class productController {
             image,
             price,
             rating,
-            category
+            category,
           }).save();
           if (newProduct) {
             return res
@@ -28,8 +28,9 @@ class productController {
             return res.status(209).json({ message: "Not save" });
           }
         }
-      } else {
-        return res.status(208).json({ message: "All fields are required" });
+      }
+       else {
+        return res.status(210).json({ message: "All fields are required" });
       }
     } catch (e) {
       console.log(e.message);

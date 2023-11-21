@@ -1,19 +1,34 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 const AddProduct = () => {
   const [input, setInput] = useState({
     title: "",
     image: "",
     price: "",
     rating: "",
+    category: "",
   });
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(input);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/product/addProduct",input
+      );
+      if (response.status === 201) {
+        console.log("done");
+        alert(response.data.message);
+      } else {
+        console.log("Not Done");
+        console.log(response.status);
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
   };
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-4 lg:px-8">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Admin Panel
@@ -83,6 +98,28 @@ const AddProduct = () => {
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
                   value={input.price}
+                  onChange={(e) =>
+                    setInput({ ...input, [e.target.name]: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            {/*-------------------- Category of Product ------------------------- */}
+            <div>
+              <label
+                htmlFor="category"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Category Of Product
+              </label>
+              <div className="mt-2">
+                <input
+                  id="category"
+                  name="category"
+                  type="text"
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
+                  value={input.category}
                   onChange={(e) =>
                     setInput({ ...input, [e.target.name]: e.target.value })
                   }

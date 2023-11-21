@@ -58,7 +58,7 @@ const Product = () => {
                 <img src={product.image} alt={product.imageAlt} />
               </div>
               <div className="content">
-                <h3 className="text-2xl">{product.title.slice(0, 20)}...</h3>
+                <h3 className="text-2xl">{product.title}</h3>
                 <div className="flex">
                   <h2 className="mx-2">
                     <span> Price :</span>
