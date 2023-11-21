@@ -10,22 +10,25 @@ import ChangePassword from "./Component/authPage/changePassword";
 import ProtectedRoute from "./Component/Service/ProtectedRoute";
 import Cart from "./Component/Pages/Cart";
 import AddProduct from "./Component/Pages/Admin/AddProduct";
+import EditProduct from "./Component/Pages/Admin/EditProduct";
+import AdminPanel from "./Component/Pages/Admin/AdminPanel";
 
 const Controller = () => {
   return (
     <>
       <Navbar />
       <Routes>
-        {/* Auth Page */}
+        <Route path="/" element={<Home />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/addProduct" element={<AddProduct />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/about" element={<About />} />
         <Route path="/" element={<ProtectedRoute />}>
+          <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/adminPanel" element={<AdminPanel />} />
+          <Route path="/editProduct" element={<EditProduct />} />
           <Route path="/changePassword" element={<ChangePassword />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/service" element={<Service />} />
         </Route>
       </Routes>
     </>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-const AddProduct = () => {
+
+const EditProduct = () => {
   const [input, setInput] = useState({
     title: "",
     image: "",
@@ -9,47 +8,19 @@ const AddProduct = () => {
     rating: "",
     category: "",
   });
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(input);
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/product/addProduct",
-        input
-      );
-      if (response.status === 201) {
-        console.log("done");
-        alert(response.data.message);
-        setInput({
-          title: "",
-          image: "",
-          price: "",
-          rating: "",
-          category: "",
-        });
-      } else {
-        console.log("Not Done");
-        console.log(response.status);
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+  const handleSubmit=async(e)=>{
+
+  }
   return (
     <>
-      <div className="relative">
-        <Link to="/adminPanel" className="right-10 my-5 absolute text-blue-600 text-xl">
-         Admin Panel
-        </Link>
-      </div>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="mt-8 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Admin Panel
           </h2>
         </div>
 
-        <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" method="POST" onSubmit={handleSubmit}>
             {/*-------------------- Product Name (title) ------------------------- */}
             <div>
@@ -179,4 +150,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default EditProduct;

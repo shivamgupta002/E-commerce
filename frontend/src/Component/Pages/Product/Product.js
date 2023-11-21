@@ -13,7 +13,7 @@ const Product = () => {
   const { data: product, status } = useSelector((state) => state.product);
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  });
   if (status === STATUSES.Loading) {
     return (
 
