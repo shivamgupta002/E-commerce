@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "./CSS/cart.css";
 import { remove } from "./Redux/CartSlice";
-// import img1 from "../Image/Product/appleWatch.jpg";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -20,15 +19,13 @@ const Cart = () => {
       <div className="cartContainer">
         {cartItems.map((item) => (
           <div className="cartBox">
-            {/*------------------- Product data --------------------- */}
-            {/* <img src={item.imageSrc} alt="img" className="cartImg" /> */}
-            {/* <h2>{item.name}</h2> */}
-
+      
             {/*------------ For store Api ----------------*/}
             <img src={item.image} alt="img" className="cartImg" />
+            <h2>{item._id}</h2>
             <h2>{item.title.slice(0, 20)}</h2>
             <h3>Price : {item.price}</h3>
-            <button onClick={() => removeItem(item.id)}>Remove</button>
+            <button onClick={() => removeItem(item._id)}>Remove</button>
           </div>
         ))}
       </div>
