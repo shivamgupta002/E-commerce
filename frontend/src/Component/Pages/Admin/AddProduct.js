@@ -11,7 +11,7 @@ const AddProduct = () => {
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(input);
+    // console.log(input);
     try {
       const response = await axios.post(
         "http://localhost:5000/api/product/addProduct",
@@ -27,9 +27,12 @@ const AddProduct = () => {
           rating: "",
           category: "",
         });
-      } else {
-        console.log("Not Done");
-        // console.log(response.status);
+      }
+      if (response.status === 208) {
+        alert(response.data.message);
+      }
+      if (response.status === 209) {
+        alert(response.data.message);
       }
     } catch (e) {
       console.log(e.message);
@@ -38,8 +41,11 @@ const AddProduct = () => {
   return (
     <>
       <div className="relative">
-        <Link to="/adminPanel" className="right-10 my-5 absolute text-blue-600 text-xl">
-         Admin Panel
+        <Link
+          to="/adminPanel"
+          className="right-10 my-5 absolute text-blue-600 text-xl"
+        >
+          Admin Panel
         </Link>
       </div>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
