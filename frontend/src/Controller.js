@@ -8,7 +8,7 @@ import Login from "./Component/authPage/Login";
 import Home from "./Component/Pages/Home";
 import ChangePassword from "./Component/authPage/changePassword";
 import ProtectedRoute from "./Component/Service/ProtectedRoute";
-import Cart from "./Component/Pages/Cart";
+import Cart from "./Component/Pages/Cart/Cart";
 import AddProduct from "./Component/Pages/Admin/AddProduct";
 import EditProduct from "./Component/Pages/Admin/EditProduct";
 import AdminPanel from "./Component/Pages/Admin/AdminPanel";

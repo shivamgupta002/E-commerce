@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import "./CSS/cart.css";
-import { remove } from "./Redux/CartSlice";
+import "./cart.css";
+import { remove } from "../Redux/CartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -14,13 +14,10 @@ const Cart = () => {
   };
   return (
     <>
-      <h2 className="text-2xl text-center text-blue-500">Cart Page</h2>
+      <h2 className="text-2xl my-2 text-center text-blue-500">Cart Page</h2>
       <div className="cartContainer">
         {cartItems.map((item) => (
           <div className="cartBox">
-            {
-              // console.log(item)
-            }
             <div className="rating">
               <i class="fa-solid fa-star"></i>
               <span>{item.rating}</span>
