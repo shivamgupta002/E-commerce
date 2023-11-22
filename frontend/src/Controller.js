@@ -27,7 +27,7 @@ const Controller = () => {
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/adminPanel" element={<AdminPanel />} />
-          <Route path="/editProduct" element={<EditProduct />} />
+          <Route path="/editProduct/:id" element={<EditProduct />} />
           <Route path="/changePassword" element={<ChangePassword />} />
         </Route>
       </Routes>

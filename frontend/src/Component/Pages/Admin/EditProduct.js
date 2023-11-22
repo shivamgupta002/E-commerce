@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+// import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditProduct = () => {
+  const Navigate=useNavigate();
   const [input, setInput] = useState({
     title: "",
     image: "",
@@ -8,15 +12,43 @@ const EditProduct = () => {
     rating: "",
     category: "",
   });
-  const handleSubmit=async(e)=>{
+//----------------------- fetch Data -----------------------------
+  const { id } = useParams();
+  const URL = `http://localhost:5000/api/product/getProductById/${id}`;
+  const fetchHandler = async () => {
+    return await axios.get(URL).then((res) => res.data);
+  };
+  useEffect(() => {
+    fetchHandler().then((data) => setInput(data.product));
+  }, [id]);
 
-  }
+  //-------------- onSubmit -----------------
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // console.log(input);
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/api/product/updateProduct/${id}`,
+        input
+      );
+      if (response.status === 201) {
+        alert(response.data.message)
+        Navigate('/adminPanel')
+      }
+      if (response.status === 208) {
+        alert(response.data.message)
+      }
+    }catch(e){
+      console.log(e.message)
+    }
+    
+  };
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Admin Panel
+            Edit Product
           </h2>
         </div>
 
