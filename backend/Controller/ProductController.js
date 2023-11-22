@@ -28,8 +28,7 @@ class productController {
             return res.status(209).json({ message: "Not save" });
           }
         }
-      }
-       else {
+      } else {
         return res.status(210).json({ message: "All fields are required" });
       }
     } catch (e) {
@@ -45,6 +44,23 @@ class productController {
         return res.status(201).json({ product });
       } else {
         return res.status(208).json({ message: "No product Found" });
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
+  // ---------------------- Delete Product---------------------------------------
+  static deleteProduct = async (req, res) => {
+    const id = req.params.id;
+    try {
+      const product = await productModel.findByIdAndDelete(id);
+      if (product) {
+        return res
+          .status(201)
+          .json({ message: "Product Deleted Successfully" });
+      } else {
+        return res.status(208).json({ message: "Not deleted by given id" });
       }
     } catch (e) {
       console.log(e.message);

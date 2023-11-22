@@ -14,7 +14,7 @@ const AdminPanel = () => {
   useEffect(() => {
     fetchHandler().then((data) => setProduct(data.product));
   }, []);
-  console.log(product);
+  // console.log(product);
   //   ----------------------------------------------
   const columns = [
     // {
@@ -49,25 +49,15 @@ const AdminPanel = () => {
           <Link to={`/editProduct/${row._id}`}>
             <i className="fa-solid fa-pen-to-square mr-4 text-xl text-yellow-400 hover:text-yellow-700 transition-all duration-500 ease-in-out hover:scale-110"></i>
           </Link>
-          <div><i className="fa-solid fa-trash text-xl text-red-500 hover:text-red-600 transition-all duration-500 ease-in-out hover:scale-110"></i></div>
-          {/* <Link to={`/edit/${row._id}`} target="_blank">
-              <AiOutlineEdit
-                className="mr-4 text-xl text-yellow-400 hover:text-yellow-700 transition-all duration-500 ease-in-out hover:scale-110"
-                LinkComponent={Link}
-                to={`/edit/${row._id}`}
-              />
-            </Link>
-            <AiFillDelete
-              className="text-xl text-red-500 hover:text-red-600 transition-all duration-500 ease-in-out hover:scale-110"
-              onClick={() => {
-                deleteHandler(row._id);
-              }}
-            /> */}
+          <div onClick={() => deleteProduct(row._id)}>
+            <i className="fa-solid fa-trash text-xl text-red-500 hover:text-red-600 transition-all duration-500 ease-in-out hover:scale-110"></i>
+          </div>
         </>
       ),
     },
   ];
 
+  const deleteProduct = () => {};
   return (
     <>
       <DataTable
