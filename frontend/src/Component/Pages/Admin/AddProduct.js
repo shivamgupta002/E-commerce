@@ -18,7 +18,7 @@ const AddProduct = () => {
         input
       );
       if (response.status === 201) {
-        console.log("done");
+        // console.log("done");
         alert(response.data.message);
         setInput({
           title: "",
@@ -29,7 +29,7 @@ const AddProduct = () => {
         });
       } else {
         console.log("Not Done");
-        console.log(response.status);
+        // console.log(response.status);
       }
     } catch (e) {
       console.log(e.message);

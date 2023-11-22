@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DataTable from "react-data-table-component";
 
 const URL = "http://localhost:5000/api/product/getProduct";
@@ -8,7 +8,9 @@ const URL = "http://localhost:5000/api/product/getProduct";
 const fetchHandler = async () => {
   return await axios.get(URL).then((res) => res.data);
 };
+
 const AdminPanel = () => {
+  const Navigate = useNavigate();
   const [product, setProduct] = useState("");
 
   useEffect(() => {
@@ -57,7 +59,15 @@ const AdminPanel = () => {
     },
   ];
 
-  const deleteProduct = () => {};
+  const deleteProduct = async (_id) => {
+    const response = await axios.delete(
+      `http://localhost:5000/api/product/deleteProduct/${_id}`
+    );
+    if (response.status === 201) {
+      alert(response.data.message);
+      Navigate("/addProduct");
+    }
+  };
   return (
     <>
       <DataTable
