@@ -28,6 +28,10 @@ const Product = () => {
         {product.map((product) => (
           <>
             <div className="box">
+              <div className="rating">
+                <i class="fa-solid fa-star"></i>
+                <span>{product.rating}</span><span>/5</span>
+              </div>
               <div className="img">
                 <img src={product.image} alt={product.imageAlt} />
               </div>
@@ -37,7 +41,7 @@ const Product = () => {
                   <h2 className="mx-2">
                     <span> Price :</span>
                   </h2>{" "}
-                  <p>{product.price}</p>
+                  <p>&#8377; {product.price}</p>
                 </div>
                 <button className="cart" onClick={() => handleAdd(product)}>
                   ADD
