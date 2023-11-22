@@ -15,14 +15,20 @@ const Cart = () => {
   return (
     <>
       <h2 className="text-2xl text-center text-blue-500">Cart Page</h2>
-
       <div className="cartContainer">
         {cartItems.map((item) => (
           <div className="cartBox">
-      
+            {
+              // console.log(item)
+            }
+            <div className="rating">
+              <i class="fa-solid fa-star"></i>
+              <span>{item.rating}</span>
+              <span>/5</span>
+            </div>
             {/*------------ For store Api ----------------*/}
             <img src={item.image} alt="img" className="cartImg" />
-            <h2>{item._id}</h2>
+            {/* <h6>{item._id}</h6> */}
             <h2>{item.title.slice(0, 20)}</h2>
             <h3>Price : {item.price}</h3>
             <button onClick={() => removeItem(item._id)}>Remove</button>

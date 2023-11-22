@@ -18,6 +18,7 @@
     width: 20%;
     margin: 10px 10px;
     padding: 10px 10px;
+    position: relative;
 }
 
 .cartImg {
@@ -33,4 +34,27 @@
     border-radius: 10px;
     background-color: rgb(29, 93, 102);
     color: wheat;
+}
+
+.rating {
+    padding: 2px 5px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    color: green;
+    background-color: #0b4d14;
+    top: 10px;
+    right: 10px;
+}
+
+.rating .fa-star {
+    color: #fff;
+    padding-right: 3px;
+    font-size: 15px;
+
+}
+
+.rating span {
+    color: #fff;
+    font-size: 15px;
 }
