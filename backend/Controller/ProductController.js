@@ -50,6 +50,22 @@ class productController {
     }
   };
 
+  // ---------------------- Get Product By Id---------------------------------------
+  static getProductById=async(req,res)=>{
+    const _id=req.params.id;
+    try{
+      const product=await productModel.findById(_id)
+      if (product) {
+        return res.status(201).json({ product });
+      } else {
+        return res.status(208).json({ message: "No product Found on given id" });
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
+
   // ---------------------- Delete Product---------------------------------------
   static deleteProduct = async (req, res) => {
     const id = req.params.id;
