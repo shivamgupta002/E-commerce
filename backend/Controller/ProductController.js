@@ -66,6 +66,29 @@ class productController {
       console.log(e.message);
     }
   };
+
+  // ---------------------- Update Product---------------------------------------
+  static updateProduct = async (req, res) => {
+    const id = req.params.id;
+    const { title, image, price, rating, category } = req.body;
+    try {
+      let response = await productModel.findByIdAndUpdate(id, {
+        title,
+        image,
+        price,
+        rating,
+        category,
+      });
+      response = await response.save();
+      if (response) {
+        return res.status(201).json({ message: "Update Successfully" });
+      } else {
+        return res.status(208).json({ message: "Not Update" });
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 }
 
 export default productController;
