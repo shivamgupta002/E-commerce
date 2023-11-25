@@ -25,8 +25,10 @@ const Product = () => {
   return (
     <>
       <h1 className="text-4xl text-center text-gray-600 my-4">Product List</h1>
-      <div className="flex">
+      <div className="filterPhone">
+        {/* <div className="lg:bg-slate-600 md:bg-slate-400 sm:bg-slate-950"> */}
         <ProductFilter />
+        {/*----------------------------- Product start -----------------------------*/}
         <div className="container">
           {product.map((product) => (
             <>
@@ -56,6 +58,8 @@ const Product = () => {
             </>
           ))}
         </div>
+        {/*----------------------------- Product end --------------------------------- */}
+       
       </div>
     </>
   );

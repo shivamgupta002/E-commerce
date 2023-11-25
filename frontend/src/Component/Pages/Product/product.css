@@ -84,3 +84,17 @@ img:hover {
     box-shadow: 0 0 0 4px #fff,
         0 0 0 8px #4070f4;
 }
+
+/* ------------------------ Responsiveness ---------------------------------- */
+
+.filterPhone {
+    display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+    .filterPhone {
+        /* background-color: #1067aa; */
+        display: inline;
+
+    }
+}
