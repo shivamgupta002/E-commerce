@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./Routes/authRoutes.js";
 import AdminRoutes from "./Routes/AdminRoutes.js";
 import productRoutes from "./Routes/ProductRoutes.js";
+import CartRoutes from "./Routes/CartRoutes.js";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", AdminRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/cart", CartRoutes);
 
 app.listen(PORT, () => {
   console.log(`App Listening on ${PORT}`);
