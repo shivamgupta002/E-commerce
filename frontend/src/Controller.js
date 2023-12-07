@@ -12,6 +12,7 @@ import Cart from "./Component/Pages/Cart/Cart";
 import AddProduct from "./Component/Pages/Admin/AddProduct";
 import EditProduct from "./Component/Pages/Admin/EditProduct";
 import AdminPanel from "./Component/Pages/Admin/AdminPanel";
+import AdminLogin from "./Component/Pages/Admin/AdminLogin";
 
 const Controller = () => {
   return (
@@ -24,6 +25,7 @@ const Controller = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/service" element={<Service />} />
         <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<AdminLogin />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/adminPanel" element={<AdminPanel />} />
